@@ -1,0 +1,19 @@
+@import "./scss/01-variable";
+@import "./scss/02-mixins";
+@import "./scss/03-reset";
+@import "./scss/04-base";
+@import "./scss/05-utilities";
+@import "./scss/06-animation";
+
+@import "./scss/components/sideNav";
+@import "./scss/components/header";
+@import "./scss/components/footer";
+@import "./scss/components/dashboard";
+@import "./scss/components/account-donor";
+@import "./scss/components/modal";
+@import "./scss/components/form";
+@import "./scss/components/datalist";
+@import "./scss/components/table";
+@import "./scss/components/spinners";
+
+@import "./scss/pages/login";

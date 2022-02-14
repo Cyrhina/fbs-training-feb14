@@ -1,0 +1,209 @@
+.donor {
+  padding: 2rem;
+}
+
+.donor__block {
+  max-width: 46rem;
+  margin-bottom: 5rem;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid $color-light-d;
+    h3 {
+      font-weight: bold;
+    }
+
+    button {
+      border: none;
+      background-color: transparent;
+      color: $color-primary;
+      &:hover {
+        color: $color-primary-d;
+      }
+    }
+  }
+
+  &__body {
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 2rem;
+      margin-bottom: 1rem;
+    }
+    .info__group {
+      h4 {
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+
+      p {
+        font-size: 1.6rem;
+      }
+    }
+
+    .card {
+      margin-bottom: 1rem;
+      padding: 2rem;
+      border: 2px solid linear-gradient(45deg, $color-primary, $color-primary-d);
+      border-radius: 1rem;
+      // background-image: linear-gradient($color-primary, $color-primary-d);
+      background-image: linear-gradient(30deg, #585858, #999999);
+      color: $color-light;
+
+      &__group {
+        margin-bottom: 1rem;
+        h5 {
+          opacity: 0.4;
+          font-size: 1.4rem;
+        }
+        p {
+          color: $color-light;
+        }
+      }
+      &__icon {
+        svg {
+          font-size: 6rem;
+        }
+      }
+
+      &__group.card--number {
+        p {
+          font-size: 5rem;
+          margin-bottom: 0;
+          line-height: 1;
+        }
+      }
+
+      &__group.card--name {
+        p {
+          font-size: 2rem;
+        }
+      }
+    }
+
+    .card__meta {
+      justify-content: space-between;
+      .d--flex {
+        gap: 4rem;
+      }
+      ul {
+        display: flex;
+        align-items: center;
+
+        li {
+          margin-left: 1rem;
+          font-size: 4rem;
+          height: 3rem;
+          align-self: flex-start;
+          svg {
+            line-height: 1;
+          }
+        }
+
+        li:nth-child(3) {
+          clip-path: polygon(0 23%, 100% 23%, 100% 130%, 0 130%);
+        }
+      }
+    }
+  }
+}
+
+.card.card--add {
+  min-height: 25rem;
+  display: grid;
+  place-content: center;
+  background: $color-light !important;
+  border: 1px solid $color-primary;
+  button {
+    background-color: transparent;
+    color: $color-light;
+  }
+  .card__box {
+    display: grid;
+    place-content: center;
+    height: 100%;
+  }
+
+  .card__btn {
+    background-color: transparent;
+    border-radius: 1rem;
+    border: none;
+    color: $color-primary;
+    transition: all 0.5s ease;
+    svg {
+      display: block;
+      margin: 0 auto;
+    }
+    h2 {
+      margin-top: 1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.card.card--spinner {
+  @extend .card.card--add;
+  position: relative;
+}
+.action__icon {
+  ul {
+    display: flex;
+    li {
+      margin-left: 1rem;
+    }
+
+    .icon {
+      padding: 0.5rem;
+      background-color: transparent;
+      border: none;
+      position: relative;
+      font-size: 1.6rem;
+      color: $color-dark;
+      &::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        left: 0;
+        bottom: 100%;
+        display: block;
+        font-size: 1rem;
+        padding: 0.3rem 0.5rem;
+        background-color: rgba($color-dark, 10);
+        color: $color-light;
+        border-radius: 0.3rem;
+        pointer-events: none;
+        opacity: 0;
+        transition: 0.5s ease;
+      }
+      &::before {
+        content: "";
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid rgba($color-dark, 10);
+        transition: 0.5s ease;
+      }
+
+      &:hover {
+        color: $color-primary;
+      }
+
+      &:hover::after,
+      &:hover::before {
+        opacity: 1;
+      }
+
+      &.icon--delete {
+        &:hover {
+          color: $color-error;
+        }
+      }
+    }
+  }
+}
